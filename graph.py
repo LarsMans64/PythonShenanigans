@@ -1,14 +1,16 @@
 import json
 import math
+import os
+import time
 
 
 def main():
-    file = json.loads(str(open("graphs.json", "r")))
-    functions = file["functions"]
-    x1 = file["x_min"]
-    x2 = file["x_max"]
-    y1 = file["y_min"]
-    y2 = file["y_max"]
+    file = json.loads(open("graphs.json", "r").read())
+    functions: list[str] = file["functions"]
+    x1: float = file["x_min"]
+    x2: float = file["x_max"]
+    y1: float = file["y_min"]
+    y2: float = file["y_max"]
 
     y_list_list = []
     width = 100
@@ -17,8 +19,11 @@ def main():
     for func in functions:
         y_list = []
         for x in range(width):
-            y = eval(func.replace("x", f"({str(x1 + x * (x2 - x1) / width)})"))
-            y_list.append(y)
+            try:
+                y = eval(func.replace("x", f"({x1 + x * (x2 - x1) / width})"))
+                y_list.append(y)
+            except ArithmeticError:
+                y_list.append("nope")
         y_list_list.append(y_list)
 
     for y in range(height):
@@ -26,11 +31,13 @@ def main():
             x_zero = int(-x1 / (x2 - x1) * width)
             y_zero = int(-y1 / (y2 - y1) * height)
             draw = " "
-            isline = False
+            is_line = False
             for y_list in y_list_list:
+                if not isinstance(y_list[x], float):
+                    continue
                 if height - y == int((y_list[x] - y1) / (y2 - y1) * height):
-                    isline = True
-            if isline:
+                    is_line = True
+            if is_line:
                 draw = "#"
             elif x == x_zero and height - y == y_zero:
                 draw = "+"
@@ -43,5 +50,7 @@ def main():
 
 
 while True:
-
+    os.system("cls")
+    print()
     main()
+    time.sleep(1)
