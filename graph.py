@@ -20,7 +20,7 @@ def main():
         y_list = []
         for x in range(width):
             try:
-                y = eval(func.replace("x", f"({x1 + x * (x2 - x1) / width})"))
+                y = eval(func.replace("x", f"({x1 + x * (x2 - x1) / width})").replace("_t", str(time.time() - t)))
                 y_list.append(y)
             except ArithmeticError:
                 y_list.append("nope")
@@ -49,8 +49,9 @@ def main():
             print(draw, end="" if x < width - 1 else "\n")
 
 
+t = time.time()
 while True:
-    os.system("cls")
-    print()
+    os.system("cls" if os.name == "nt" else "clear")
+    print("Time:", round(time.time() - t, 2))
     main()
-    time.sleep(1)
+    time.sleep(0.05)
