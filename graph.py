@@ -49,6 +49,7 @@ def main():
             print(draw, end="" if x < width - 1 else "\n")
 
 
+pi = math.pi  # just to use the import somewhere
 t = time.time()
 while True:
     os.system("cls" if os.name == "nt" else "clear")
