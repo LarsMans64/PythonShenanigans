@@ -1,12 +1,9 @@
 {
   "functions": [
-    "1 / x",
-    "0 / 0",
-    "math.sin(x * 2) + 1.7",
-    "math.cos(x * 2 + _t) * 2.3 + 1.7"
+    "math.cos(_x * 3 + _t * 3) * (math.sin(_t * 4) * 2.3)"
   ],
   "x_min": -0.2,
   "x_max": 3,
-  "y_min": -1,
-  "y_max": 4
+  "y_min": -3,
+  "y_max": 3
 }
