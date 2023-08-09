@@ -13,8 +13,8 @@ def main():
     y2: float = file["y_max"]
 
     y_list_list = []
-    width = 100
-    height = 20
+    width = 120
+    height = 27
 
     for func in functions:
         y_list = []
@@ -26,6 +26,7 @@ def main():
                 y_list.append("nope")
         y_list_list.append(y_list)
 
+    frame = ""
     for y in range(height):
         for x in range(width):
             x_zero = int(-x1 / (x2 - x1) * width)
@@ -46,7 +47,10 @@ def main():
             elif height - y == y_zero:
                 draw = "-"
 
-            print(draw, end="" if x < width - 1 else "\n")
+            if x == width - 1:
+                draw = draw + "\n"
+            frame = frame + draw
+    print(frame)
 
 
 pi = math.pi  # just to use the import somewhere
@@ -57,3 +61,6 @@ while True:
     print("Time:", round(time.time() - t, 2))
     main()
     time.sleep(0.04)
+
+# TODO:
+#  numbers on axes

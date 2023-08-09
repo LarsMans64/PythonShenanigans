@@ -1,9 +1,16 @@
 {
   "functions": [
-    "math.cos(_x * 3 + _t * 3) * (math.sin(_t * 4) * 2.3)"
+    "math.tan(_x / 6 - _t) * 3",
+    "-math.tan(_x / 6 + _t) * 3"
   ],
-  "x_min": -0.2,
-  "x_max": 3,
-  "y_min": -3,
-  "y_max": 3
+
+  "x_min": -10,
+  "x_max": 10,
+  "y_min": -10,
+  "y_max": 10,
+
+  "cool functions, use dimensions (-10, 10)": [
+    "math.cos(_x / 2 + _t * 3) * (math.sin(_t * 2.5) * 8)",
+    "math.tan(_x / 6 - _t) * 3", "-math.tan(_x / 6 + _t) * 3"
+  ]
 }
