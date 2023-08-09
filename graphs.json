@@ -1,7 +1,6 @@
 {
   "functions": [
-    "math.tan(_x / 6 - _t) * 3",
-    "-math.tan(_x / 6 + _t) * 3"
+    "math.tan(_x / 6 - _t) * 3", "-math.tan(_x / 6 + _t) * 3"
   ],
 
   "x_min": -10,
