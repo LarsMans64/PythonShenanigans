@@ -63,4 +63,4 @@ while True:
     time.sleep(0.04)
 
 # TODO:
-#  numbers on axes
+#  numbers on axes on edges of screen
